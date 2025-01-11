@@ -1,5 +1,3 @@
 public interface Payable {
-    private double getPaymentAmount() {
-
-    }
+    double getPaymentAmount();
 }

@@ -1,40 +1,55 @@
-import java.util.Scanner;
-
-public class Person implements Payable {
-    private static int id = 0;
-    private int id_gen;
+public abstract class Person implements Payable, Comparable<Person> {
+    private static int counter = 0;
+    private int id;
     private String name;
     private String surname;
 
+
     public Person() {
-        Scanner sc = new Scanner(System.in);
-        this.id_gen = id++;
-        setName(sc.nextLine());
-        setSurname(sc.nextLine());
+        this.id = ++counter;
+    }
+
+    public Person(String name, String surname) {
+        this();
+        this.name = name;
+        this.surname = surname;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getSurname() {
+        return surname;
+    }
+
     public void setSurname(String surname) {
         this.surname = surname;
     }
 
-    public int getId_gen() {
-        return id_gen;
+
+    @Override
+    public String toString() {
+        return id + ". " + name + " " + surname;
     }
-    public String getName() {
-        return name;
-    }
-    public String getSurname() {
-        return surname;
-    }
+
 
     public String getPosition() {
         return "Student";
     }
 
-    public String toString() {
-        return id_gen + " ." + name + " " + surname;
+
+    @Override
+    public int compareTo(Person other) {
+        return Double.compare(this.getPaymentAmount(), other.getPaymentAmount());
     }
 }
