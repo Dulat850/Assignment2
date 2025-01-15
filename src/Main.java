@@ -7,10 +7,11 @@ public class Main {
         List<Payable> people = new ArrayList<>();
 
 
-        people.add(new Employee("John", "Lennon", "Manager", 27045.78));
-        people.add(new Employee("George", "Harrison", "Developer", 50000.00));
-        people.add(new Student("Ringo", "Starr", 2.5)); // Не получает стипендию
-        people.add(new Student("Paul", "McCartney", 3.5)); // Получает стипендию
+        people.add(new Employee("Elvis", "Presley", "Director", 35000.00));  
+        people.add(new Employee("David", "Bowie", "Senior Developer", 60000.00));  
+        people.add(new Student("Mick", "Jagger", 3.0));  
+        people.add(new Student("Freddie", "Mercury", 3.8));  
+
 
 
         Collections.sort(people, (p1, p2) -> Double.compare(p1.getPaymentAmount(), p2.getPaymentAmount()));
